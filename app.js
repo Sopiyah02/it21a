@@ -1,38 +1,37 @@
-class Person {
-    name;
-    age;
-    occupation;
-    major;
-    constructor(name, age, occupation, major) {
-        this.name = name;
-        this.age = age;
-        this.occupation = occupation;
-        this.major = major;
-    }
-    get name() {
-        return this.name;
-    }
-    get age() {
-        return this.age;
-    }
-    get occupation() {
-        return this.occupation;
-    }
-    get major() {
-        return this.major;
-    }
-}
-class Student extends Person {
-    constructor(name, age, occupation, major) {
-        super(name, age, occupation, major);
-    }
-}
-const student = new Student("Sopia", 19, "Student", "Programming");
-console.log("Name: " + student.name);
-console.log("Age: " + student.age);
-console.log("Occupation: " + student.occupation);
-console.log("Major: " + student.major);
-document.getElementById("information").innerHTML = "Name: " + student.name + "<br>" +
-    "Age: " + student.age + "<br>" +
-    "Occupation: " + student.occupation + "<br>" +
-    "Major: " + student.major
+       class Employee {
+            #name;
+            #baseSalary;
+
+            setName(val) {
+                this.#name = val;
+            }
+            setBaseSalary(val) {
+                this.#baseSalary = val;
+            }
+
+            getName() {
+                return this.#name;
+            }
+
+            getSalary() {
+                let bonus = 1000;
+                return this.#baseSalary + bonus;
+            }
+        }
+
+        const emp = new Employee();
+
+        document.getElementById('setEmployee').onclick = () => {
+            const name = document.getElementById('name').value;
+            const salary = parseFloat(document.getElementById('salary').value);
+            emp.setName(name);
+            emp.setBaseSalary(salary);
+        };
+
+        document.getElementById('showName').onclick = () => {
+            document.getElementById('outputName').textContent = `Employee Name: ${emp.getName()}`;
+        };
+
+        document.getElementById('showSalary').onclick = () => {
+            document.getElementById('outputSalary').textContent = `Total Salary (with bonus): $${emp.getSalary()}`;
+        };
