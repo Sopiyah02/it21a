@@ -21,6 +21,6 @@ class Person{
     super.sayName();
     }
     }
-    var student = new Student("Heisenberg", 1);
+    var student = new Student("Sopia", 1);
     student.logDetails();
     student.sayName();
